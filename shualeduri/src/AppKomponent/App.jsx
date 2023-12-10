@@ -7,7 +7,7 @@ function App() {
   const [dataaxios, setDataaxios] = useState([])
   const [chekidinfo, setChekidinfo] = useState()
   const [chekidtru, setChekidtru ] = useState({})
-  console.log(chekidtru, 'kkk')
+  console.log(chekidtru)
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   

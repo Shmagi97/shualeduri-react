@@ -22,14 +22,12 @@ const ChekboxSearch = (props)=> {
         props.maxState2(getValueMax)
     }
 
-    function getChekidTru(){
-        props.chekidInfoTruOrFalseState2(cheked)
-     }
-
     function chekedFn(event){
        const  value = event.target.value
        const isChekid = event.target.checked
-       getChekidTru()
+       const objectCheked = {value, isChekid}
+       props.chekidInfoTruOrFalseState2(objectCheked)
+      
        
        setCheked((items)=> ({
          ...items,
