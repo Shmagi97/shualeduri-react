@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CardKomponent = (props) => {
-    console.log( props.filteredBrandnamedataState2)
+    // console.log( props.filteredBrandnamedataState2)
     return(
   
         props.filteredBrandnamedataState2.map((el,index)=>{

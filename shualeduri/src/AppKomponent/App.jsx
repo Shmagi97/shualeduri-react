@@ -6,7 +6,18 @@ import Masivi from '../masiv/masiv'
 function App() {
   const [dataaxios, setDataaxios] = useState([])
   const [chekidinfo, setChekidinfo] = useState()
-  // console.log(chekidinfo)
+  const [min, setMin] = useState()
+  const [max, setMax] = useState()
+
+  function minFn(value){
+    setMin(value)
+  }
+  
+  function maxFn(value){
+    setMax(value)
+  }
+
+  console.log(max, 'kkkk')
 
   function getAxiosData (value){
     setDataaxios(value)
@@ -17,7 +28,14 @@ function App() {
 
   }
 
-  const filteredChekIdAxios = dataaxios?.filter(el => el.brandName === chekidinfo)
+  // const filteredChekIdAxios = dataaxios?.filter(el => el.brandName === chekidinfo)
+
+  const filteredChekIdAxios = dataaxios?.filter((el)=> {
+    // console.log(el.price)
+    if(el.brandName === chekidinfo && el.price > min && el.price < max){
+      return el.brandName
+    } 
+  })
 
   return (
    
@@ -28,6 +46,8 @@ function App() {
           <Section1
             dataAxiosState = {dataaxios}
             getChekidInfoState = {getChekedInfo}
+            minState = {minFn}
+            maxState = {maxFn}
           />
           <Section2
            filteredBrandnamedataState = {filteredChekIdAxios}

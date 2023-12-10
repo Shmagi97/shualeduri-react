@@ -12,6 +12,16 @@ const ChekboxSearch = (props)=> {
       
     }
 
+    function getMin(event){
+        const getvalueMin = event.target.value
+        props.minState2(getvalueMin)
+    }
+
+    function getMax (event) {
+        const getValueMax = event.target.value
+        props.maxState2(getValueMax)
+    }
+
     // function chekedFn(event){
     //     setCheked(event.target.checked)
     // }
@@ -24,8 +34,8 @@ const ChekboxSearch = (props)=> {
           <>
        
            <div className="divMinMax">
-              <input type="number" placeholder='MIN'/>
-              <input type="number" placeholder='MAX'/>
+              <input type="number" placeholder='MIN' onChange={getMin}/>
+              <input type="number" placeholder='MAX' onChange={getMax}/>
            </div>
 
            <h1>ბრენდი</h1>

@@ -10,6 +10,8 @@ const Section1 = (props)=> {
            <ChekboxSearch
             dataAxiosState2 = {props.dataAxiosState}
             getChekidInfoState2 = {props.getChekidInfoState}
+            minState2 = {props.minState}
+            maxState2 = {props.maxState}
            />
         </section>
     )
