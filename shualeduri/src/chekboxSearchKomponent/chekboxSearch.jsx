@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const ChekboxSearch = (props)=> {
 
-    // const [cheked, setCheked] = useState(false)
+    const [cheked, setCheked] = useState({})
     // console.log(cheked)
 
     function getValueChekbox (event){
@@ -22,9 +22,21 @@ const ChekboxSearch = (props)=> {
         props.maxState2(getValueMax)
     }
 
-    // function chekedFn(event){
-    //     setCheked(event.target.checked)
-    // }
+    function getChekidTru(){
+        props.chekidInfoTruOrFalseState2(cheked)
+     }
+
+    function chekedFn(event){
+       const  value = event.target.value
+       const isChekid = event.target.checked
+       getChekidTru()
+       
+       setCheked((items)=> ({
+         ...items,
+         [value]: isChekid
+        
+       }))
+    }
 
     const chekboxAxiosStateNewSet =  [...new Set(props.dataAxiosState2?.map((el)=> el.brandName))]
     // console.log(chekboxAxiosStateNewSet)
@@ -44,9 +56,9 @@ const ChekboxSearch = (props)=> {
               {chekboxAxiosStateNewSet?.map((el, index)=> {
   
               return(
-            <div key={index}  className='chekboxDiv2'>
+            <div  className='chekboxDiv2'  key={index}>
                 {/* დაამატე ჩეკიდ ინპუტში */}
-               <input type="checkbox" value={el}  onClick={getValueChekbox}   />
+               <input type="checkbox" value={el} onChange={chekedFn}  checked={cheked[index]} onClick={getValueChekbox}   />
                <label htmlFor="input1" > {el} 
                </label>
             </div>

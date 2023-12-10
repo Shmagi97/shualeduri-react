@@ -3,11 +3,11 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CardKomponent = (props) => {
-    // console.log( props.filteredBrandnamedataState2)
+    
     return(
   
         props.filteredBrandnamedataState2.map((el,index)=>{
-          // console.log(el)
+      
           return(
             <Card style={{ width: '18rem' }} key={index}>
             <Card.Img variant="top" src={el.imageUrl} />

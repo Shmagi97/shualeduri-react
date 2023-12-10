@@ -12,6 +12,7 @@ const Section1 = (props)=> {
             getChekidInfoState2 = {props.getChekidInfoState}
             minState2 = {props.minState}
             maxState2 = {props.maxState}
+            chekidInfoTruOrFalseState2 = {props.chekidInfoTruOrFalseState}
            />
         </section>
     )
