@@ -1,0 +1,11 @@
+.searchForm {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.searchForm > input {
+  width: 40%;
+  height: 30px;
+}

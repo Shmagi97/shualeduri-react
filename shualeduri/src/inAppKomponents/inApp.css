@@ -1,0 +1,11 @@
+.sectionSection {
+  border: solid red;
+}
+
+.section2Div {
+  border: solid yellow;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
+}
