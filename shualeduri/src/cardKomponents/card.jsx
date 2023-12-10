@@ -6,7 +6,7 @@ const CardKomponent = (props) => {
     
     return(
   
-        props.filteredBrandnamedataState2.map((el,index)=>{
+        props.filteredBrandnamedataState2?.map((el,index)=>{
       
           return(
             <Card style={{ width: '18rem' }} key={index}>

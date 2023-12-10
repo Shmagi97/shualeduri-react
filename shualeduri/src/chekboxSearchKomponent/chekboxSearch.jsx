@@ -4,13 +4,9 @@ import { useState } from 'react'
 const ChekboxSearch = (props)=> {
 
     const [cheked, setCheked] = useState({})
-    // console.log(cheked)
+    props.chekidInfoTruOrFalseState2(cheked)
+    // console.log(cheked, 'meore')
 
-    function getValueChekbox (event){
-        const getValue = event.target.value
-        props.getChekidInfoState2(getValue)
-      
-    }
 
     function getMin(event){
         const getvalueMin = event.target.value
@@ -22,19 +18,6 @@ const ChekboxSearch = (props)=> {
         props.maxState2(getValueMax)
     }
 
-    function chekedFn(event){
-       const  value = event.target.value
-       const isChekid = event.target.checked
-       const objectCheked = {value, isChekid}
-       props.chekidInfoTruOrFalseState2(objectCheked)
-      
-       
-       setCheked((items)=> ({
-         ...items,
-         [value]: isChekid
-        
-       }))
-    }
 
     const chekboxAxiosStateNewSet =  [...new Set(props.dataAxiosState2?.map((el)=> el.brandName))]
     // console.log(chekboxAxiosStateNewSet)
@@ -52,11 +35,22 @@ const ChekboxSearch = (props)=> {
            
            <div className='chekboxDivInMap'>
               {chekboxAxiosStateNewSet?.map((el, index)=> {
+
+               function chekedFn(event){
+                   const  value = event.target.value
+                    const isChekid = event.target.checked
+                //    const objectCheked = {value, isChekid, index}
+                  setCheked((items)=> ({
+                    ...items,
+                   [value]: isChekid
+     
+                     }))
+                }
   
               return(
             <div  className='chekboxDiv2'  key={index}>
-                {/* დაამატე ჩეკიდ ინპუტში */}
-               <input type="checkbox" value={el} onChange={chekedFn}  checked={cheked[index]} onClick={getValueChekbox}   />
+              
+               <input type="checkbox" value={el} onChange={chekedFn}  checked={cheked[index]}   />
                <label htmlFor="input1" > {el} 
                </label>
             </div>

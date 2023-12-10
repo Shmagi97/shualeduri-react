@@ -7,9 +7,9 @@ import axios from "axios"
 
 const Masivi = (props)=> {
     
-    const [list, setList] = useState([])
-    const [axiosdata, setAxiosdata] = useState ([])
-    const [value, setValue] = useState()
+    // const [list, setList] = useState([])
+    // const [axiosdata, setAxiosdata] = useState ([])
+    // const [value, setValue] = useState()
     // const getValueInInput = (getValue) => {
     //     setValue(getValue)
        

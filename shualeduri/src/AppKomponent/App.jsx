@@ -5,11 +5,11 @@ import Masivi from '../masiv/masiv'
 
 function App() {
   const [dataaxios, setDataaxios] = useState([])
-  const [chekidinfo, setChekidinfo] = useState()
+  
   const [chekidtru, setChekidtru ] = useState({})
-  console.log(chekidtru)
   const [min, setMin] = useState()
   const [max, setMax] = useState()
+  const [datadom, setDatadom] = useState({})
   
 
   function minFn(value){
@@ -25,37 +25,31 @@ function App() {
     setDataaxios(value)
   }
 
-  function getChekedInfo(value){
-    setChekidinfo(value)
-
-  }
-
   function chekidInfoTruOrFalse(value){
       setChekidtru(value)
   }
 
-
-
-  // const filteredChekIdAxios = dataaxios?.filter(el => el.brandName === chekidinfo)
-
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
-    // console.log(el.price)
-    if( el.brandName === chekidinfo   ){
-      
-      return el.brandName 
 
-    } 
-    
-    if(el.price > min && el.price < max){
+   
+    //  if( chekidtru.Apple  === true || chekidtru.Google === true || chekidtru.Samsung === true || chekidtru.Xiaomi === true){
+        
+    //  } 
 
-      return el.brandName 
-
-    } 
-    
-    if(el.brandName === chekidinfo && el.price > min && el.price < max){
-
-      return el.brandName 
+    if (
+      (chekidtru.Apple && el.brandName === 'Apple') ||
+      (chekidtru.Google && el.brandName === 'Google') ||
+      (chekidtru.Samsung && el.brandName === 'Samsung') ||
+      (chekidtru.Xiaomi && el.brandName === 'Xiaomi')
+    ) {
+      return true;
+    } else {
+      return false;
     }
+     
+    
+    
+
   })
 
   return (
@@ -66,7 +60,6 @@ function App() {
            />
           <Section1
             dataAxiosState = {dataaxios}
-            getChekidInfoState = {getChekedInfo}
             minState = {minFn}
             maxState = {maxFn}
             chekidInfoTruOrFalseState = {chekidInfoTruOrFalse}
