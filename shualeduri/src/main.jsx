@@ -7,7 +7,7 @@ import './index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <main className='mainMain'>
+    <main className=''>
        <Search/>
        <App/>
     </main>
