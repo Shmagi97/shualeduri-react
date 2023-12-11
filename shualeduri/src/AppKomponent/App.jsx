@@ -10,7 +10,7 @@ function App() {
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   const [datadom, setDatadom] = useState({})
-  
+
 
   function minFn(value){
     setMin(value)
@@ -19,7 +19,6 @@ function App() {
   function maxFn(value){
     setMax(value)
   }
-
 
   function getAxiosData (value){
     setDataaxios(value)
@@ -30,11 +29,7 @@ function App() {
   }
 
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
-
-   
-    //  if( chekidtru.Apple  === true || chekidtru.Google === true || chekidtru.Samsung === true || chekidtru.Xiaomi === true){
-        
-    //  } 
+    
 
     if (
       (chekidtru.Apple && el.brandName === 'Apple') ||
@@ -45,12 +40,22 @@ function App() {
       return true;
     } else {
       return false;
-    }
-     
-    
-    
+    } 
 
   })
+
+  const filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
+
+
+  let dinamiState = []
+
+  if (filterMinMax.length === 0 ) {
+    dinamiState = filteredChekIdAxios
+    
+  }  else { dinamiState = filterMinMax  }
+
+ 
+  
 
   return (
    
@@ -65,7 +70,8 @@ function App() {
             chekidInfoTruOrFalseState = {chekidInfoTruOrFalse}
           />
           <Section2
-           filteredBrandnamedataState = {filteredChekIdAxios}
+           
+           filterMinMaxState = {dinamiState}
           />
 
       </section>

@@ -18,11 +18,13 @@ const Section1 = (props)=> {
 }
 
 const Section2 = (props)=> {
+   
     return(
         <div className="section2Div">
            <CardKomponent
-            filteredBrandnamedataState2 = {props.filteredBrandnamedataState}
+            filterMinMaxState2 = {props.filterMinMaxState}
            />
+         
         </div>
     )
 }

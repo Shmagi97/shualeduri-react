@@ -5,9 +5,7 @@ const ChekboxSearch = (props)=> {
 
     const [cheked, setCheked] = useState({})
     props.chekidInfoTruOrFalseState2(cheked)
-    // console.log(cheked, 'meore')
-
-
+ 
     function getMin(event){
         const getvalueMin = event.target.value
         props.minState2(getvalueMin)
@@ -20,8 +18,7 @@ const ChekboxSearch = (props)=> {
 
 
     const chekboxAxiosStateNewSet =  [...new Set(props.dataAxiosState2?.map((el)=> el.brandName))]
-    // console.log(chekboxAxiosStateNewSet)
-
+  
     return(
 
           <>
@@ -39,7 +36,7 @@ const ChekboxSearch = (props)=> {
                function chekedFn(event){
                    const  value = event.target.value
                     const isChekid = event.target.checked
-                //    const objectCheked = {value, isChekid, index}
+             
                   setCheked((items)=> ({
                     ...items,
                    [value]: isChekid
