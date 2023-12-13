@@ -2,10 +2,10 @@ import '../hedSearch/search.css'
 
 const Search = ()=> {
     return(
-        <form action="" className="w-full">
+        <form action="" className="searchForm w-full flex mt-10 justify-evenly border-solid border-black">
          
           <input type="search" name="" id="" />
-          <input type="search" />
+         
           <button type="submit">submit</button>
 
         </form>

@@ -1,11 +1,13 @@
 /* .searchForm {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 50px;
+  border: solid rgb(0, 255, 13);
 } */
 
 .searchForm > input {
   width: 40%;
   height: 30px;
+  border: solid rgb(0, 0, 0);
+}
+
+.searchForm > button {
+  border: solid black;
 }

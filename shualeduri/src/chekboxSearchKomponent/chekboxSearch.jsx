@@ -23,7 +23,7 @@ const ChekboxSearch = (props)=> {
 
           <>
        
-           <div className="divMinMax">
+           <div className="divMinMax grid gap-4 pb-5">
               <input type="number" placeholder='MIN' onChange={getMin}/>
               <input type="number" placeholder='MAX' onChange={getMax}/>
            </div>
