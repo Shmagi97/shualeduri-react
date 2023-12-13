@@ -59,7 +59,7 @@ function App() {
 
   return (
    
-      <section className='appSection'>
+      <section className='flex mt-40'>
            <Masivi
             getAxiosDataState = {getAxiosData}
            />

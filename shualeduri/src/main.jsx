@@ -6,10 +6,12 @@ import './index.css'
 
 
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <main className=''>
+    <main >
+    
        <Search/>
-       <App/>
+        <App/>
     </main>
        
 

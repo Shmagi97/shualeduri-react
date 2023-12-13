@@ -2,7 +2,7 @@ import '../hedSearch/search.css'
 
 const Search = ()=> {
     return(
-        <form action="" className="searchForm">
+        <form action="" className="w-full">
          
           <input type="search" name="" id="" />
           <input type="search" />
