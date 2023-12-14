@@ -12,9 +12,10 @@ function App() {
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   const [datapopular, setDatapopular] = useState([])
+  const [searchvalue, setSearchvalue] = useState()
 
 
-   
+const filterStartWorld = [ ...new Set(datapopular?.filter((el)=> el.toLowerCase().startsWith(searchvalue)))]
 
   function minFn(value){
     setMin(value)
@@ -31,6 +32,7 @@ function App() {
   function chekidInfoTruOrFalse(value){
       setChekidtru(value)
   }
+
 
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
     
@@ -58,8 +60,6 @@ function App() {
     
   }  else { dinamiState = filterMinMax  }
 
- 
-  
 
   return (
 
@@ -68,6 +68,9 @@ function App() {
      <MasivContext.Provider value={{
       datapopular,
       setDatapopular,
+      filterStartWorld,
+      setSearchvalue,
+      searchvalue,
      
      }}>
 

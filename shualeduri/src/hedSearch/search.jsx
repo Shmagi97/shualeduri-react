@@ -1,47 +1,46 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { MasivContext } from '../context/context'
 import '../hedSearch/search.css'
 
 const Search = ()=> {
-   
-  const [searchvalue, setSearchvalue] = useState()
-  // console.log(searchvalue, 'llll')
-   
+  const {datapopular, filterStartWorld, setSearchvalue, searchvalue } = useContext(MasivContext)
+  const dataPopularNewSet = [...new Set(datapopular)]
+
+  // const [element, setElement] = useState({})
+  // console.log(element, 'element')
+
+  let dinamicData = []
+
+  if(!searchvalue){
+    dinamicData =  ["შეავსეთ საძიებო ველი"]
+
+  } else { dinamicData = filterStartWorld }
+
+ 
+
   function getValueSearch (event){
     const value = event.target.value
     setSearchvalue(value)
   }
 
   const modalClick = document.querySelector('.modalSection')
-  //  console.log(modalClick)
-  
-   let number = 0 
+  const section2Blur = document.querySelector('.section2Div')
 
-  // function clickModalFn(){
-  //   if (number < 1){
-  //     number ++
-  //     modalClick.classList.add('modalOpen')
-  //   } else if (number == 1){
-  //     number = 0
-  //     modalClick.classList.remove('modalOpen')
-  //   }
-  // }
 
   let modalOpen = false
 
   function clickModalFn(){
     if (!modalOpen){
        modalClick.classList.add('modalOpen')
+       section2Blur.style.filter =  "blur(6px)";
        modalOpen = true
     } else if (modalOpen){
        modalClick.classList.remove('modalOpen')
+       section2Blur.style.filter =  "blur(0px)";
        modalOpen = false
     }
   }
 
-    const {datapopular} = useContext(MasivContext)
-    // console.log(datapopular, 'llll')
-  
 
     return(
 
@@ -67,7 +66,16 @@ const Search = ()=> {
 
         <div className='searchSectionDiv2'>
 
-          <img src="https://zoommer.ge/icons/main-logo.svg" alt="zoomerLogo" />
+          <img src="https://zoommer.ge/icons/main-logo.svg" alt="zoomerLogo" className='imgZoomer'/>
+          { useEffect(()=>{
+            
+              const imgZoomer = document.querySelector('.imgZoomer');
+  
+              imgZoomer.addEventListener('click', () => {
+               window.location = '/'
+              });
+          }, [])
+          }
 
           <div>
              <img src="https://zoommer.ge/icons/dots.svg" alt="iqon" />
@@ -98,11 +106,33 @@ const Search = ()=> {
        </section>
        
        <section className='modalSection'>
+          <h2>ძებნის შედეგი</h2>
           <div>
+            {dinamicData?.map((el, index)=> {
 
+                 const selector = `.${el}`;
+              
+              return (
+                <div key={index}>
+                    <p className = 'rame'>  {el}
+                  
+                       {/* { useEffect(()=>{
+                          const elements = document.querySelectorAll('.rame')
+                           const elementsNewArray = new Array(elements)
+                          console.log(elementsNewArray)
+
+                       },[])
+                       } */}
+                    
+                    </p>
+                </div>
+              )
+            })}
           </div>
+          <h2>პოპულარული ძიება</h2>
           <div>
-           {datapopular?.map((el, index)=> {
+            
+           {dataPopularNewSet?.map((el, index)=> {
             return(
               <div key={index} >
                 <p>{el}</p>

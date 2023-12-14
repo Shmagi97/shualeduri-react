@@ -48,7 +48,7 @@ const ChekboxSearch = (props)=> {
             <div  className='chekboxDiv2'  key={index}>
               
                <input type="checkbox" value={el} onChange={chekedFn}  checked={cheked[index]}   />
-               <label htmlFor="input1" > {el} 
+               <label htmlFor="input1"  > {el} 
                </label>
             </div>
       
