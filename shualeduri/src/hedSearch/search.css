@@ -1,13 +1,169 @@
-/* .searchForm {
-  border: solid rgb(0, 255, 13);
-} */
-
-.searchForm > input {
-  width: 40%;
-  height: 30px;
-  border: solid rgb(0, 0, 0);
+.searchSection {
+  position: fixed;
+  margin-top: -100px;
+  width: 100%;
+  z-index: 1;
 }
 
-.searchForm > button {
-  border: solid black;
+.searchSection > div:first-child {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 119, 0);
+  height: 50px;
+}
+
+.searchSection > div:first-child > div:last-child {
+  display: flex;
+  column-gap: 20px;
+}
+
+.searchSection > div > div:first-child > p {
+  font-size: 15px;
+  color: white;
+}
+
+.searchSection > div > div:first-child > p:hover {
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.searchSection > div > div:last-child > p {
+  font-size: 15px;
+  color: white;
+  opacity: 70%;
+}
+
+.searchSection > div > div:last-child > p:hover {
+  font-size: 15px;
+  color: white;
+  opacity: 100%;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.searchSectionDiv2 {
+  position: relative;
+  width: 100%;
+  padding: 0px 10px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(231, 227, 227);
+  justify-content: space-between;
+}
+
+.searchSectionDiv2 > img:first-child {
+  cursor: pointer;
+}
+
+.searchSectionDiv2 > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(255, 119, 0);
+  column-gap: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.searchSectionDiv2 > div:nth-child(2) > p {
+  margin-top: 10px;
+  color: white;
+}
+
+.searchSectionDiv2 > div:nth-child(3) {
+  border: 0.3px solid rgb(255, 129, 129);
+  width: 40%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 10px;
+  align-items: center;
+  padding: 0px 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.searchSectionDiv2 > div:nth-child(3) > img {
+  cursor: pointer;
+}
+
+.searchSectionDiv2 > div:nth-child(3) > input {
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.searchSectionDiv2 > div:nth-child(4),
+.searchSectionDiv2 > div:nth-child(5) {
+  height: 50px;
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.searchSectionDiv2 > div:nth-child(4) > div,
+.searchSectionDiv2 > div:nth-child(5) > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.searchSectionDiv2 > div:nth-child(4) > div > p,
+.searchSectionDiv2 > div:nth-child(5) > div > p {
+  margin-top: 10px;
+  color: black;
+}
+
+.modalSection {
+  position: fixed;
+  z-index: 1;
+  width: 50%;
+  height: 400px;
+  border: solid red;
+  display: grid;
+  justify-content: space-around;
+  align-items: center;
+  left: 25%;
+  top: 120px;
+  background-color: rgb(255, 254, 254);
+  border-radius: 10px;
+  display: none;
+}
+
+.modalOpen {
+  display: block;
+}
+
+.modalSection > div:nth-child(1) {
+  border: solid rgb(225, 255, 0);
+  height: 100px;
+}
+
+.modalSection > div:nth-child(2) {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  gap: 20px;
+}
+
+.modalSection > div:nth-child(2) > div {
+  border-radius: 10px;
+  background-color: rgb(231, 227, 227);
+  display: flex;
+  justify-content: center;
+  padding: 0px 5px;
+  cursor: pointer;
+}
+
+.modalSection > div:nth-child(2) > div > p {
+  margin-top: 10px;
+  font-size: 13px;
 }

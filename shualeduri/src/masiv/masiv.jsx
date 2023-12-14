@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios"
+import { MasivContext } from "../context/context";
 
 
 
@@ -7,22 +8,21 @@ import axios from "axios"
 
 const Masivi = (props)=> {
     
-    // const [list, setList] = useState([])
-    // const [axiosdata, setAxiosdata] = useState ([])
-    // const [value, setValue] = useState()
-    // const getValueInInput = (getValue) => {
-    //     setValue(getValue)
-       
-    // }
-
+    const { setDatapopular } = useContext(MasivContext)
+    
    useMemo(()=> {
    
     axios.get('https://api.zoommer.ge/v1/Products/v3?CategoryId=855&Page=1&Limit=60')
     .then(response => {
         // setAxiosdata(response.data)
-       
+        
         const dataAxios = response.data.products
         props.getAxiosDataState(dataAxios)
+        const dataAxiosPopularSearch = response?.data.popularSearches
+     
+        setDatapopular(dataAxiosPopularSearch)
+        
+      
        
     })
 
@@ -35,18 +35,6 @@ const Masivi = (props)=> {
    
 
    },[])
-
-    
-    return(
-        <>
-      
-          
-        </>
-        
-    )
-   
-   
-   
 
 }
 

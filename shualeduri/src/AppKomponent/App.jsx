@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Section1, Section2 } from '../inAppKomponents/inapp'
 import '../AppKomponent/App.css'
 import Masivi from '../masiv/masiv'
+import Search from '../hedSearch/search'
+import { MasivContext } from '../context/context.js'
 
 function App() {
   const [dataaxios, setDataaxios] = useState([])
@@ -9,8 +11,10 @@ function App() {
   const [chekidtru, setChekidtru ] = useState({})
   const [min, setMin] = useState()
   const [max, setMax] = useState()
-  const [datadom, setDatadom] = useState({})
+  const [datapopular, setDatapopular] = useState([])
 
+
+   
 
   function minFn(value){
     setMin(value)
@@ -58,8 +62,19 @@ function App() {
   
 
   return (
+
+
+
+     <MasivContext.Provider value={{
+      datapopular,
+      setDatapopular,
+     
+     }}>
+
+      <Search/>
    
-      <section className='flex mt-40'>
+      <section className='appSection'>
+
            <Masivi
             getAxiosDataState = {getAxiosData}
            />
@@ -75,6 +90,9 @@ function App() {
           />
 
       </section>
+
+      </MasivContext.Provider>
+
       
   
   )
