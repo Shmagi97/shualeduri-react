@@ -48,42 +48,31 @@ const Search = ()=> {
   }
   
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const elements = document.querySelectorAll('.mapName')
-    const masiv = Array.from(elements)
+  //   const elements = document.querySelectorAll('.mapName')
+  //   const masiv = Array.from(elements)
    
-    masiv.forEach((el)=> el.addEventListener('click', ()=> {
+  //   masiv.forEach((el)=> el.addEventListener('click', ()=> {
       
-      setElement(el.outerText)
+  //     setElement(el.outerText)
+  //     modalClick.classList.remove('modalOpen')
+  //     section2Blur.style.filter =  "blur(0px)";
+    
+      
+  //   }))
+
+  
+  // },[searchvalue])
+
+
+  function clickSearcFn (value){
+    
+      setElement(value)
       modalClick.classList.remove('modalOpen')
       section2Blur.style.filter =  "blur(0px)";
     
-      
-    }))
-
-  
-  },[searchvalue])
-
-  
-  // popilar searchebi 
-
-  useEffect(()=>{
-
-    const elementsPopular = document.querySelectorAll('.mapName2')
-    const masiv2 = Array.from(elementsPopular)
-    
-
-    masiv2.forEach((el)=> el.addEventListener('click', ()=> {
-      setElement(el.outerText)
-      
-      modalClick.classList.remove('modalOpen')
-      section2Blur.style.filter =  "blur(0px)";
-    }))
-  
-  },[searchvalue])
-
-   // popilar searchebi 
+  }
 
     return(
 
@@ -154,7 +143,7 @@ const Search = ()=> {
             {dinamicData?.map((el, index)=> {
               
               return (
-                <div className='mapName' key={index} ref={useref}>
+                <div className='mapName' key={index} ref={useref} onClick={ ()=> clickSearcFn(el) }>
                     <p >  {el} </p>
                 </div>
               )
@@ -165,7 +154,7 @@ const Search = ()=> {
             
            {datapopular?.map((el, index)=> {
             return(
-              <div className='mapName2' key={index} >
+              <div className='mapName2' key={index} onClick={()=> clickSearcFn(el)} >
                 <p>{el}</p>
               </div>
             )

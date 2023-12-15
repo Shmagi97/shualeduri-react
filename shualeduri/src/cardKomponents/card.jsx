@@ -6,8 +6,15 @@ import { MasivContext } from '../context/context';
 
 const CardKomponentSearch = () => {
    const {filterSearchName, filterSearchNamePopular} = useContext(MasivContext)
+
+   let dinamikMasiv = []
+   if (filterSearchName.length === 0){
+    dinamikMasiv = filterSearchNamePopular
+   } else {dinamikMasiv = filterSearchName}
+
   return(
-    filterSearchName?.map((el,index)=> {
+    
+    dinamikMasiv?.map((el,index)=> {
       
       return(
         <Card style={{ width: '18rem' }} key={index}>

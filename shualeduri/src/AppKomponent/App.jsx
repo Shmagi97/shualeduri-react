@@ -8,7 +8,7 @@ import { MasivContext } from '../context/context.js'
 function App() {
   const [dataaxios, setDataaxios] = useState([])
   const [element, setElement] = useState('')
-  console.log(element, 'eleme')
+ 
   const [chekidtru, setChekidtru ] = useState({})
   const [min, setMin] = useState()
   const [max, setMax] = useState()
@@ -17,11 +17,11 @@ function App() {
 
   const filterSearchName = dataaxios?.filter((el)=> el.name === element)
 
-  // popilar searchebi 
-  const filterSearchNamePopular = dataaxios?.filter((el)=> el.name.toLowerCase().startsWith(element) )
  
+  const filterSearchNamePopular = dataaxios?.filter((el)=> el.name.includes(element) )
+
   console.log(filterSearchNamePopular, 'mmm')
-   // popilar searchebi 
+  
   
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
