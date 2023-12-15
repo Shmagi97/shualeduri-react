@@ -1,23 +1,26 @@
 import '../chekboxSearchKomponent/chekboxSearch.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { MasivContext } from '../context/context'
 
-const ChekboxSearch = (props)=> {
+const ChekboxSearch = ()=> {
+
+   const {setChekidtru, dataaxios, setMin, setMax } = useContext(MasivContext)
 
     const [cheked, setCheked] = useState({})
-    props.chekidInfoTruOrFalseState2(cheked)
+    setChekidtru(cheked)
  
     function getMin(event){
         const getvalueMin = event.target.value
-        props.minState2(getvalueMin)
+        setMin(getvalueMin)
     }
 
     function getMax (event) {
         const getValueMax = event.target.value
-        props.maxState2(getValueMax)
+        setMax(getValueMax)
     }
 
 
-    const chekboxAxiosStateNewSet =  [...new Set(props.dataAxiosState2?.map((el)=> el.brandName))]
+    const chekboxAxiosStateNewSet =  [...new Set(dataaxios?.map((el)=> el.brandName))]
   
     return(
 
@@ -47,7 +50,7 @@ const ChekboxSearch = (props)=> {
               return(
             <div  className='chekboxDiv2'  key={index}>
               
-               <input type="checkbox" value={el} onChange={chekedFn}  checked={cheked[index]}   />
+               <input type="checkbox" value={el} onChange={chekedFn}   />
                <label htmlFor="input1"  > {el} 
                </label>
             </div>

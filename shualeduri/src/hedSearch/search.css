@@ -144,8 +144,9 @@
 
 .modalSection > div:nth-child(2) {
   padding: 10px;
-  display: flex;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
 }
 
 .modalSection > div:nth-child(2) > div {

@@ -7,36 +7,23 @@ import { MasivContext } from '../context/context.js'
 
 function App() {
   const [dataaxios, setDataaxios] = useState([])
-  
+  const [element, setElement] = useState('')
+  console.log(element, 'eleme')
   const [chekidtru, setChekidtru ] = useState({})
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   const [datapopular, setDatapopular] = useState([])
-  const [searchvalue, setSearchvalue] = useState()
 
 
-const filterStartWorld = [ ...new Set(datapopular?.filter((el)=> el.toLowerCase().startsWith(searchvalue)))]
+  const filterSearchName = dataaxios?.filter((el)=> el.name === element)
 
-  function minFn(value){
-    setMin(value)
-  }
+  // popilar searchebi 
+  const filterSearchNamePopular = dataaxios?.filter((el)=> el.name.toLowerCase().startsWith(element) )
+ 
+  console.log(filterSearchNamePopular, 'mmm')
+   // popilar searchebi 
   
-  function maxFn(value){
-    setMax(value)
-  }
-
-  function getAxiosData (value){
-    setDataaxios(value)
-  }
-
-  function chekidInfoTruOrFalse(value){
-      setChekidtru(value)
-  }
-
-
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
-    
-
     if (
       (chekidtru.Apple && el.brandName === 'Apple') ||
       (chekidtru.Google && el.brandName === 'Google') ||
@@ -58,7 +45,7 @@ const filterStartWorld = [ ...new Set(datapopular?.filter((el)=> el.toLowerCase(
   if (filterMinMax.length === 0 ) {
     dinamiState = filteredChekIdAxios
     
-  }  else { dinamiState = filterMinMax  }
+  }   else {dinamiState = filterMinMax}
 
 
   return (
@@ -66,11 +53,16 @@ const filterStartWorld = [ ...new Set(datapopular?.filter((el)=> el.toLowerCase(
 
 
      <MasivContext.Provider value={{
+      dataaxios,
+      setDataaxios,
       datapopular,
       setDatapopular,
-      filterStartWorld,
-      setSearchvalue,
-      searchvalue,
+      setElement,
+      setChekidtru,
+      setMin,
+      setMax,
+      filterSearchName,
+      filterSearchNamePopular,
      
      }}>
 
@@ -78,15 +70,8 @@ const filterStartWorld = [ ...new Set(datapopular?.filter((el)=> el.toLowerCase(
    
       <section className='appSection'>
 
-           <Masivi
-            getAxiosDataState = {getAxiosData}
-           />
-          <Section1
-            dataAxiosState = {dataaxios}
-            minState = {minFn}
-            maxState = {maxFn}
-            chekidInfoTruOrFalseState = {chekidInfoTruOrFalse}
-          />
+          <Masivi/>
+          <Section1/>
           <Section2
            
            filterMinMaxState = {dinamiState}

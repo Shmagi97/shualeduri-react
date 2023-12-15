@@ -1,20 +1,26 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { MasivContext } from '../context/context'
 import '../hedSearch/search.css'
 
 const Search = ()=> {
-  const {datapopular, filterStartWorld, setSearchvalue, searchvalue } = useContext(MasivContext)
-  const dataPopularNewSet = [...new Set(datapopular)]
+   
+  const useref = useRef()
 
-  // const [element, setElement] = useState({})
-  // console.log(element, 'element')
+  const [searchvalue, setSearchvalue] = useState('')
+ 
+
+  const {datapopular, setElement, dataaxios } = useContext(MasivContext)
+
+  const filterDataAxios = dataaxios?.filter((el)=> el.name.toLowerCase().startsWith(searchvalue))
+  const filterDataAxiosBrandName = [...new Set(filterDataAxios.map((el)=> el.name ))] 
+ 
 
   let dinamicData = []
 
   if(!searchvalue){
     dinamicData =  ["შეავსეთ საძიებო ველი"]
 
-  } else { dinamicData = filterStartWorld }
+  } else { dinamicData = filterDataAxiosBrandName }
 
  
 
@@ -40,7 +46,44 @@ const Search = ()=> {
        modalOpen = false
     }
   }
+  
 
+  useEffect(()=>{
+
+    const elements = document.querySelectorAll('.mapName')
+    const masiv = Array.from(elements)
+   
+    masiv.forEach((el)=> el.addEventListener('click', ()=> {
+      
+      setElement(el.outerText)
+      modalClick.classList.remove('modalOpen')
+      section2Blur.style.filter =  "blur(0px)";
+    
+      
+    }))
+
+  
+  },[searchvalue])
+
+  
+  // popilar searchebi 
+
+  useEffect(()=>{
+
+    const elementsPopular = document.querySelectorAll('.mapName2')
+    const masiv2 = Array.from(elementsPopular)
+    
+
+    masiv2.forEach((el)=> el.addEventListener('click', ()=> {
+      setElement(el.outerText)
+      
+      modalClick.classList.remove('modalOpen')
+      section2Blur.style.filter =  "blur(0px)";
+    }))
+  
+  },[searchvalue])
+
+   // popilar searchebi 
 
     return(
 
@@ -109,22 +152,10 @@ const Search = ()=> {
           <h2>ძებნის შედეგი</h2>
           <div>
             {dinamicData?.map((el, index)=> {
-
-                 const selector = `.${el}`;
               
               return (
-                <div key={index}>
-                    <p className = 'rame'>  {el}
-                  
-                       {/* { useEffect(()=>{
-                          const elements = document.querySelectorAll('.rame')
-                           const elementsNewArray = new Array(elements)
-                          console.log(elementsNewArray)
-
-                       },[])
-                       } */}
-                    
-                    </p>
+                <div className='mapName' key={index} ref={useref}>
+                    <p >  {el} </p>
                 </div>
               )
             })}
@@ -132,9 +163,9 @@ const Search = ()=> {
           <h2>პოპულარული ძიება</h2>
           <div>
             
-           {dataPopularNewSet?.map((el, index)=> {
+           {datapopular?.map((el, index)=> {
             return(
-              <div key={index} >
+              <div className='mapName2' key={index} >
                 <p>{el}</p>
               </div>
             )

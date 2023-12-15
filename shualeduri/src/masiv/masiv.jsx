@@ -6,9 +6,9 @@ import { MasivContext } from "../context/context";
 
 
 
-const Masivi = (props)=> {
+const Masivi = ()=> {
     
-    const { setDatapopular } = useContext(MasivContext)
+    const { setDatapopular, setDataaxios } = useContext(MasivContext)
     
    useMemo(()=> {
    
@@ -17,9 +17,8 @@ const Masivi = (props)=> {
         // setAxiosdata(response.data)
         
         const dataAxios = response.data.products
-        props.getAxiosDataState(dataAxios)
+        setDataaxios(dataAxios)
         const dataAxiosPopularSearch = response?.data.popularSearches
-     
         setDatapopular(dataAxiosPopularSearch)
         
       
