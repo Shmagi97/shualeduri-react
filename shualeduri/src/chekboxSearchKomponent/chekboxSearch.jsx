@@ -8,7 +8,6 @@ const ChekboxSearch = ()=> {
 
 
     const [cheked, setCheked] = useState({})
-    console.log(cheked, 'mmm')
     setChekidtru(cheked)
  
     function getMin(event){

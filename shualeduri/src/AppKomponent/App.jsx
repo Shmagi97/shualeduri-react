@@ -14,13 +14,11 @@ function App() {
   const [max, setMax] = useState()
   const [datapopular, setDatapopular] = useState([])
  
-  // console.log(chekidtru, 'mmm')
 
-  const filterSearchName = dataaxios?.filter((el)=> el.name === element)
+  let filterSearchName = dataaxios?.filter((el)=> el.name === element)
   
-
   
-  const filterSearchNamePopular = dataaxios?.filter((el)=> el.name.includes(element) )
+  let filterSearchNamePopular = dataaxios?.filter((el)=> el.name.includes(element) )
 
   
   let filterSerachNotValid = [];
@@ -28,27 +26,24 @@ function App() {
   if (filterSearchNamePopular.length === 0){
     filterSerachNotValid = [
         { 
-           valid:'true',
+          
            name: 'პროდუქტი ვერ მოიძებნა',
         }
       
       ] 
-  }  else {filterSerachNotValid = ['folse']}
+  }  else {filterSerachNotValid = []}
 
   
-  let dinamikFilterPopular = filterSearchNamePopular
+ 
   
-  const filteredChekIdAxios = dataaxios?.filter((el)=> {
+  let filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
       (chekidtru.Apple && el.brandName === 'Apple') ||
       (chekidtru.Google && el.brandName === 'Google') ||
       (chekidtru.Samsung && el.brandName === 'Samsung') ||
       (chekidtru.Xiaomi && el.brandName === 'Xiaomi')
     ) {
-      dinamikFilterPopular = [   { 
-        
-        name: 'პროდუქტი ვერ მოიძებნა დაძებნეთ პოპულარული ძიების ველში',
-     } ]
+      
       return true;
     } else {
       return false;
@@ -56,7 +51,9 @@ function App() {
 
   })
 
-  const filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
+
+
+  let filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
 
 
   let dinamiState = []
@@ -65,6 +62,36 @@ function App() {
     dinamiState = filteredChekIdAxios
     
   }   else {dinamiState = filterMinMax}
+
+
+
+
+
+   let dinamiStateSacdeli = []
+
+
+    if ( dinamiState.length > 0 ) {
+
+      dinamiStateSacdeli = dinamiState
+      filterSearchName = []
+      filterSearchNamePopular = []
+    
+      
+
+    } else if ( filterSearchName.length > 0 ){
+      dinamiStateSacdeli = filterSearchName
+      dinamiState = []
+      filterSearchNamePopular = []
+      
+
+    } else if (filterSearchNamePopular.length > 0){
+      dinamiStateSacdeli = filterSearchNamePopular
+      dinamiState = []
+      filterSearchName = []
+     
+      console.log(dinamiState,  ' filterSearchNamePopular ifshi')
+    } else { dinamiStateSacdeli = filterSerachNotValid }
+
 
 
   return (
@@ -80,11 +107,7 @@ function App() {
       setChekidtru,
       setMin,
       setMax,
-      filterSearchName,
-      dinamikFilterPopular,
-      filterSerachNotValid,
       
-     
      }}>
 
       <Search/>
@@ -95,7 +118,7 @@ function App() {
           <Section1/>
           <Section2
            
-           filterMinMaxState = {dinamiState}
+           filterMinMaxState = {dinamiStateSacdeli}
           />
 
       </section>
