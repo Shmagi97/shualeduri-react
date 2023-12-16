@@ -13,15 +13,30 @@ function App() {
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   const [datapopular, setDatapopular] = useState([])
-
+ 
+  // console.log(chekidtru, 'mmm')
 
   const filterSearchName = dataaxios?.filter((el)=> el.name === element)
+  
 
- 
+  
   const filterSearchNamePopular = dataaxios?.filter((el)=> el.name.includes(element) )
 
-  console.log(filterSearchNamePopular, 'mmm')
   
+  let filterSerachNotValid = [];
+
+  if (filterSearchNamePopular.length === 0){
+    filterSerachNotValid = [
+        { 
+           valid:'true',
+           name: 'პროდუქტი ვერ მოიძებნა',
+        }
+      
+      ] 
+  }  else {filterSerachNotValid = ['folse']}
+
+  
+  let dinamikFilterPopular = filterSearchNamePopular
   
   const filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
@@ -30,6 +45,10 @@ function App() {
       (chekidtru.Samsung && el.brandName === 'Samsung') ||
       (chekidtru.Xiaomi && el.brandName === 'Xiaomi')
     ) {
+      dinamikFilterPopular = [   { 
+        
+        name: 'პროდუქტი ვერ მოიძებნა დაძებნეთ პოპულარული ძიების ველში',
+     } ]
       return true;
     } else {
       return false;
@@ -62,7 +81,9 @@ function App() {
       setMin,
       setMax,
       filterSearchName,
-      filterSearchNamePopular,
+      dinamikFilterPopular,
+      filterSerachNotValid,
+      
      
      }}>
 

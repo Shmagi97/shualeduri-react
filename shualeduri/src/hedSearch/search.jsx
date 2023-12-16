@@ -31,6 +31,7 @@ const Search = ()=> {
 
   const modalClick = document.querySelector('.modalSection')
   const section2Blur = document.querySelector('.section2Div')
+  const section2Blur2 = document.querySelector('.cardKomponentSection')
 
 
   let modalOpen = false
@@ -39,12 +40,22 @@ const Search = ()=> {
     if (!modalOpen){
        modalClick.classList.add('modalOpen')
        section2Blur.style.filter =  "blur(6px)";
+       section2Blur2.style.filter =  "blur(6px)";
        modalOpen = true
     } else if (modalOpen){
        modalClick.classList.remove('modalOpen')
        section2Blur.style.filter =  "blur(0px)";
+       section2Blur2.style.filter =  "blur(0px)";
        modalOpen = false
     }
+  }
+
+  function spanClick(){
+    if (  modalOpen = true){
+      modalClick.classList.remove('modalOpen')
+      section2Blur.style.filter =  "blur(0px)";
+      section2Blur2.style.filter =  "blur(0px)";
+    } else { modalOpen = false}
   }
   
 
@@ -71,7 +82,7 @@ const Search = ()=> {
       setElement(value)
       modalClick.classList.remove('modalOpen')
       section2Blur.style.filter =  "blur(0px)";
-    
+      section2Blur2.style.filter =  "blur(0px)";
   }
 
     return(
@@ -138,7 +149,8 @@ const Search = ()=> {
        </section>
        
        <section className='modalSection'>
-          <h2>ძებნის შედეგი</h2>
+
+         <div>  <h2>ძებნის შედეგი </h2> <span onClick={spanClick}>X</span> </div>
           <div>
             {dinamicData?.map((el, index)=> {
               

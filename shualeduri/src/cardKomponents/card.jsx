@@ -5,12 +5,18 @@ import { useContext } from 'react';
 import { MasivContext } from '../context/context';
 
 const CardKomponentSearch = () => {
-   const {filterSearchName, filterSearchNamePopular} = useContext(MasivContext)
+   const {filterSearchName, dinamikFilterPopular, filterSerachNotValid} = useContext(MasivContext)
 
    let dinamikMasiv = []
-   if (filterSearchName.length === 0){
-    dinamikMasiv = filterSearchNamePopular
-   } else {dinamikMasiv = filterSearchName}
+   if ((filterSearchName.length === 0) && (dinamikFilterPopular.length > 0)){
+    dinamikMasiv = dinamikFilterPopular
+   } else if ((filterSearchName.length > 0) && (dinamikFilterPopular.length <= 1) ){
+    
+    dinamikMasiv = filterSearchName 
+  } else if ((filterSearchName.length === 0) && (dinamikFilterPopular.length <= 1)){
+    dinamikMasiv = filterSerachNotValid
+  }
+
 
   return(
     

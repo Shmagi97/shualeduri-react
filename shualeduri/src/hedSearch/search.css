@@ -187,3 +187,32 @@
 .modalSection > h2 {
   font-size: 15px;
 }
+
+.modalSection > div:first-child {
+  display: flex;
+  /* justify-content: space-between; */
+  position: relative;
+}
+
+.modalSection > div:first-child > span {
+  background-color: rgb(211, 208, 208);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+.modalSection > div:first-child > span:hover {
+  background-color: rgb(102, 99, 99);
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  color: rgb(230, 229, 229);
+}
+
+.modalSection > div > h2 {
+  font-size: 15px;
+}

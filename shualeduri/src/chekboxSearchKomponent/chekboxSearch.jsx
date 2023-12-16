@@ -4,9 +4,11 @@ import { MasivContext } from '../context/context'
 
 const ChekboxSearch = ()=> {
 
-   const {setChekidtru, dataaxios, setMin, setMax } = useContext(MasivContext)
+   const {setChekidtru, dataaxios, setMin, setMax  } = useContext(MasivContext)
+
 
     const [cheked, setCheked] = useState({})
+    console.log(cheked, 'mmm')
     setChekidtru(cheked)
  
     function getMin(event){
@@ -39,7 +41,8 @@ const ChekboxSearch = ()=> {
                function chekedFn(event){
                    const  value = event.target.value
                     const isChekid = event.target.checked
-             
+
+                   
                   setCheked((items)=> ({
                     ...items,
                    [value]: isChekid
