@@ -12,12 +12,13 @@ const Masivi = ()=> {
     
    useMemo(()=> {
    
-    axios.get('https://api.zoommer.ge/v1/Products/v3?CategoryId=855&Page=1&Limit=60')
+    axios.get('https://api.zoommer.ge/v1/Products/v3?CategoryId=855&Page=1&Limit=1160')
     .then(response => {
         // setAxiosdata(response.data)
         
         const dataAxios = response.data.products
         setDataaxios(dataAxios)
+        console.log(dataAxios)
         const dataAxiosPopularSearch = response?.data.popularSearches
         setDatapopular(dataAxiosPopularSearch)
         
