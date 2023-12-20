@@ -34,7 +34,7 @@ function App() {
   }  else {filterSerachNotValid = []}
 
   
-  console.log(chekidtru)
+
   
   let filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
@@ -42,7 +42,6 @@ function App() {
       (chekidtru.Google && el.brandName === 'Google') ||
       (chekidtru.Samsung && el.brandName === 'Samsung') ||
       (chekidtru.Xiaomi && el.brandName === 'Xiaomi') ||
-
       (chekidtru.Nothing && el.brandName === 'Nothing') ||
       (chekidtru.OnePlus && el.brandName === 'OnePlus') ||
       (chekidtru.Realme && el.brandName === 'Realme') ||
@@ -58,7 +57,8 @@ function App() {
 
   })
 
-
+  console.log(chekidtru)
+  console.log(filteredChekIdAxios)
 
   let filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
 
