@@ -34,14 +34,21 @@ function App() {
   }  else {filterSerachNotValid = []}
 
   
- 
+  console.log(chekidtru)
   
   let filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
       (chekidtru.Apple && el.brandName === 'Apple') ||
       (chekidtru.Google && el.brandName === 'Google') ||
       (chekidtru.Samsung && el.brandName === 'Samsung') ||
-      (chekidtru.Xiaomi && el.brandName === 'Xiaomi')
+      (chekidtru.Xiaomi && el.brandName === 'Xiaomi') ||
+
+      (chekidtru.Nothing && el.brandName === 'Nothing') ||
+      (chekidtru.OnePlus && el.brandName === 'OnePlus') ||
+      (chekidtru.Realme && el.brandName === 'Realme') ||
+      (chekidtru.Nokia && el.brandName === 'Nokia')||
+      (chekidtru.Honor && el.brandName === 'Honor') ||
+      (chekidtru.CAT && el.brandName === 'CAT')
     ) {
       
       return true;
@@ -89,7 +96,7 @@ function App() {
       dinamiState = []
       filterSearchName = []
      
-      console.log(dinamiState,  ' filterSearchNamePopular ifshi')
+    
     } else { dinamiStateSacdeli = filterSerachNotValid }
 
 
