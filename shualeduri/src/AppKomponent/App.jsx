@@ -57,8 +57,6 @@ function App() {
 
   })
 
-  console.log(chekidtru)
-  console.log(filteredChekIdAxios)
 
   let filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
 
