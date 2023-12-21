@@ -8,12 +8,13 @@ import { MasivContext } from '../context/context.js'
 function App() {
   const [dataaxios, setDataaxios] = useState([])
   const [element, setElement] = useState('')
- 
-  const [chekidtru, setChekidtru ] = useState({})
+
   const [min, setMin] = useState()
   const [max, setMax] = useState()
   const [datapopular, setDatapopular] = useState([])
  
+  const [cheked, setCheked] = useState({})
+  
 
   let filterSearchName = dataaxios?.filter((el)=> el.name === element)
   
@@ -38,16 +39,16 @@ function App() {
   
   let filteredChekIdAxios = dataaxios?.filter((el)=> {
     if (
-      (chekidtru.Apple && el.brandName === 'Apple') ||
-      (chekidtru.Google && el.brandName === 'Google') ||
-      (chekidtru.Samsung && el.brandName === 'Samsung') ||
-      (chekidtru.Xiaomi && el.brandName === 'Xiaomi') ||
-      (chekidtru.Nothing && el.brandName === 'Nothing') ||
-      (chekidtru.OnePlus && el.brandName === 'OnePlus') ||
-      (chekidtru.Realme && el.brandName === 'Realme') ||
-      (chekidtru.Nokia && el.brandName === 'Nokia')||
-      (chekidtru.Honor && el.brandName === 'Honor') ||
-      (chekidtru.CAT && el.brandName === 'CAT')
+      (cheked.Apple && el.brandName === 'Apple') ||
+      (cheked.Google && el.brandName === 'Google') ||
+      (cheked.Samsung && el.brandName === 'Samsung') ||
+      (cheked.Xiaomi && el.brandName === 'Xiaomi') ||
+      (cheked.Nothing && el.brandName === 'Nothing') ||
+      (cheked.OnePlus && el.brandName === 'OnePlus') ||
+      (cheked.Realme && el.brandName === 'Realme') ||
+      (cheked.Nokia && el.brandName === 'Nokia')||
+      (cheked.Honor && el.brandName === 'Honor') ||
+      (cheked.CAT && el.brandName === 'CAT')
     ) {
       
       return true;
@@ -109,9 +110,9 @@ function App() {
       datapopular,
       setDatapopular,
       setElement,
-      setChekidtru,
       setMin,
       setMax,
+      setCheked,
       
      }}>
 

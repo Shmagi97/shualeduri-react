@@ -4,12 +4,8 @@ import { MasivContext } from '../context/context'
 
 const ChekboxSearch = ()=> {
 
-   const {setChekidtru, dataaxios, setMin, setMax  } = useContext(MasivContext)
+   const {setCheked, dataaxios, setMin, setMax  } = useContext(MasivContext)
 
-
-    const [cheked, setCheked] = useState({})
-    setChekidtru(cheked)
- 
     function getMin(event){
         const getvalueMin = event.target.value
         setMin(getvalueMin)
