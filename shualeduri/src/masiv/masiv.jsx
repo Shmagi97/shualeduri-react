@@ -19,8 +19,6 @@ const Masivi = ()=> {
         const dataAxios = response.data.products
         setDataaxios(dataAxios)
 
-        console.log(dataAxios, 'masiv')
-
         const dataAxiosPopularSearch = response?.data.popularSearches
         setDatapopular(dataAxiosPopularSearch)
         

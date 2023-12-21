@@ -22,7 +22,7 @@ function App() {
   let filterSearchNamePopular = dataaxios?.filter((el)=> el.name.includes(element) )
 
   
-  let filterSerachNotValid = [];
+  let filterSerachNotValid = [''];
 
   if (filterSearchNamePopular.length === 0){
     filterSerachNotValid = [
@@ -32,7 +32,7 @@ function App() {
         }
       
       ] 
-  }  else {filterSerachNotValid = []}
+  }  else {filterSerachNotValid = ['']}
 
   
 
@@ -62,7 +62,7 @@ function App() {
   let filterMinMax = filteredChekIdAxios?.filter((el)=>el.price > min && el.price < max)
 
 
-  let dinamiState = []
+  let dinamiState = ['']
 
   if (filterMinMax.length === 0 ) {
     dinamiState = filteredChekIdAxios
@@ -73,27 +73,27 @@ function App() {
 
 
 
-   let dinamiStateSacdeli = []
+   let dinamiStateSacdeli = ['']
 
 
     if ( dinamiState.length > 0 ) {
 
       dinamiStateSacdeli = dinamiState
-      filterSearchName = []
-      filterSearchNamePopular = []
+      filterSearchName = ['']
+      filterSearchNamePopular = ['']
     
       
 
     } else if ( filterSearchName.length > 0 ){
       dinamiStateSacdeli = filterSearchName
-      dinamiState = []
-      filterSearchNamePopular = []
+      dinamiState = ['']
+      filterSearchNamePopular = ['']
       
 
     } else if (filterSearchNamePopular.length > 0){
       dinamiStateSacdeli = filterSearchNamePopular
-      dinamiState = []
-      filterSearchName = []
+      dinamiState = ['']
+      filterSearchName = ['']
      
     
     } else { dinamiStateSacdeli = filterSerachNotValid }
